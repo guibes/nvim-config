@@ -99,14 +99,14 @@ additional_plugins = {
 
   -- { "crispgm/nvim-go", ft = "go" },
 
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   ft = "markdown",
-  --   run = ":call mkdp#util#install()",
-  --   config = function()
-  --     vim.g.mkdp_auto_close = 0
-  --   end,
-  -- },
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    run = ":call mkdp#util#install()",
+    config = function()
+      vim.g.mkdp_auto_close = 0
+    end,
+  },
 
   -- {
   --   "andweeb/presence.nvim",
@@ -186,7 +186,7 @@ local config = {
     },
   },
   other_configs = function()
-    vim.cmd("colorscheme enfocado")
+    vim.cmd("colorscheme torte")
     -- Other settings here
     -- For examples for disabling line number:
     -- vim.opt.number = false
@@ -197,11 +197,35 @@ local config = {
     -- third argument is command. and last argument is optional argument like {expr = true}.
     -- map("n", "<C-t>", ":ToggleTerm<CR>")
     -- map("t", "<C-t>", ":ToggleTerm<CR>")
+    local status_ok, copilot = pcall(require, "copilot")
+    if not status_ok then
+      return
+    end
 
+    copilot.setup {
+      cmp = {
+        enabled = true,
+        method = "getCompletionsCycling",
+      },
+      panel = { -- no config options yet
+        enabled = true,
+      },
+      ft_disable = { "markdown" },
+      -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
+      server_opts_overrides = {
+        -- trace = "verbose",
+        settings = {
+          advanced = {
+            -- listCount = 10, -- #completions for panel
+            inlineSuggestCount = 3, -- #completions for getCompletions
+          },
+        },
+      },
+    }
     -- This is example of how to make keymap and add it to
     -- which_keys(that pop of window on bottom of NeoVim that help you to find keymaps)
     -- This will make new group of keymaps names Something with two commands and they're describtions.
-    -- with pressing `<leader> + s` you can trigger which keys to show you
+        -- with pressing `<leader> + s` you can trigger which keys to show you
     -- Something commands. with pressing e it will echo hello on command prompt at the end of NeoVim
     -- and with pressing f it will echo Goodbye on command prompt at the end of NeoVim
     -- wk_add(

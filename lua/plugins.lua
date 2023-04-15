@@ -547,6 +547,8 @@ return require("packer").startup({
       },
       disable = disable_plugins.vim_resize,
     })
+    -- Install github copilot nvim
+    use({"github/copilot.vim"})
 
     -- Install additional user plugins.
     for _, plugin in pairs(additional_plugins) do

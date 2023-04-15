@@ -18,7 +18,7 @@ map("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")
 
 -- Buffer switching.
 map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
-map("n", "<Tab>", ":BufferLineCycleNext<CR>")
+-- map("n", "<Tab>", ":BufferLineCycleNext<CR>")
 
 -- Moving lines in visual select.
 map("v", "K", ":move '<-2<CR>gv-gv")
