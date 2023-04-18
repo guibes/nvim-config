@@ -550,6 +550,9 @@ return require("packer").startup({
     -- Install github copilot nvim
     use({"github/copilot.vim"})
 
+    -- Install glow markdown previewers
+    use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
+
     -- Install additional user plugins.
     for _, plugin in pairs(additional_plugins) do
       if type(plugin) == "string" then
