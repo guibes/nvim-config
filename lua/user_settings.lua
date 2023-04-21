@@ -186,7 +186,7 @@ local config = {
     },
   },
   other_configs = function()
-    vim.cmd("colorscheme torte")
+    vim.cmd("colorscheme shades_of_purple")
     -- Other settings here
     -- For examples for disabling line number:
     -- vim.opt.number = false

@@ -553,6 +553,12 @@ return require("packer").startup({
     -- Install glow markdown previewers
     use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 
+    -- Install Silicon for screenshot code
+    use({"segeljakt/vim-silicon"})
+
+    -- Shades of Purple theme
+    use({"Rigellute/shades-of-purple.vim"})
+
     -- Install additional user plugins.
     for _, plugin in pairs(additional_plugins) do
       if type(plugin) == "string" then
