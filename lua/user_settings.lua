@@ -29,9 +29,9 @@ disable_plugins = {
   -- Are realy small. You can install debugger by your self and
   -- then configure it by your self so you can use nvim_dap and nvim_dap_ui
   -- without dap_install
-  nvim_dap = true,
-  dap_install = true,
-  nvim_dap_ui = true,
+  nvim_dap = false,
+  dap_install = false,
+  nvim_dap_ui = false,
 
   -- NOTE: these plugins are telescope and telescope extensions. fzf is for
   -- better searching experince and you can fuzzy find directories with
@@ -186,11 +186,11 @@ local config = {
     },
   },
   other_configs = function()
-    vim.cmd("colorscheme shades_of_purple")
+    vim.cmd("colorscheme pop-punk")
     -- Other settings here
     -- For examples for disabling line number:
     -- vim.opt.number = false
-    -- vim.opt.relativenumber = false
+    vim.opt.relativenumber = false
 
     -- Or for changing terminal toggle mapping:
     -- first argument is mode of mapping. second argument is keymap.
@@ -249,6 +249,36 @@ local config = {
     -- user_indent_blankline_style = 1 -- You can choose between predefined 1, 2, 3, 4,5 and 6
     -- or you can use your favorite character.
     -- user_indent_blankline_style = ""
+   -- require("dap-vscode-js").setup({
+   --    -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
+   --    -- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
+   --    -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+   --    adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
+   --    -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
+   --    -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
+   --    -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
+   --  })
+
+    -- for _, language in ipairs({ "typescript", "javascript" }) do
+    --   require("dap").configurations.typescript= {
+    --      {
+    --         type = "pwa-node",
+    --         request = "launch",
+    --         name = "Launch file",
+    --         program = "${file}",
+    --         cwd = "${workspaceFolder}",
+    --       },
+    --       {
+    --         type = "pwa-node",
+    --         request = "attach",
+    --         name = "Attach",
+    --         processId = require'dap.utils'.pick_process,
+    --         cwd = "${workspaceFolder}",
+    --       }
+    --     }
+    -- end
+
+
   end,
 }
 

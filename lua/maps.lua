@@ -18,7 +18,7 @@ map("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")
 
 -- Buffer switching.
 map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
--- map("n", "<Tab>", ":BufferLineCycleNext<CR>")
+map("n", "<Tab>", ":BufferLineCycleNext<CR>")
 
 -- Moving lines in visual select.
 map("v", "K", ":move '<-2<CR>gv-gv")
@@ -50,3 +50,12 @@ map("v", "p", '"_dP')
 -- With this you can use > < multiple time for changing indent when you visual selected text.
 map("v", "<", "<gv")
 map("v", ">", ">gv")
+
+-- Copilot
+map('i', '<C-/>', 'copilot#Accept("<CR>")', {expr = true, silent = true})
+
+-- Debugger
+map('n', '<F9>', ':lua require"dap".toggle_breakpoint()<CR>')
+map('n', '<F10>', ':lua require"dap".step_over()<CR>')
+map('n', '<F11>', ':lua require"dap".step_into()<CR>')
+map('n', '<F12>', ':lua require"dap".step_out()<CR>')
