@@ -262,31 +262,21 @@ local default_plugins = {
       require("which-key").setup(opts)
     end,
   },
-  {
-    'github/copilot.vim',
-    lazy=false,
-    init = function()
-      vim.g.copilot_no_tab_map = true
-    end,
-    config = function()
-      vim.keymap.set('i', '<C-e>', [[copilot#Accept("\<CR>")]], {
-        silent = true,
-        expr = true,
-        script = true,
-        replace_keycodes = false,
-      })
-    end,
-  },
-  {
-      'glacambre/firenvim',
-
-      -- Lazy load firenvim
-      -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-      lazy = not vim.g.started_by_firenvim,
-      build = function()
-          vim.fn["firenvim#install"](0)
-      end
-  }
+  -- {
+  --   'github/copilot.vim',
+  --   lazy=false,
+  --   init = function()
+  --     vim.g.copilot_no_tab_map = true
+  --   end,
+  --   config = function()
+  --     vim.keymap.set('i', '<C-e>', [[copilot#Accept("\<CR>")]], {
+  --       silent = true,
+  --       expr = true,
+  --       script = true,
+  --       replace_keycodes = false,
+  --     })
+  --   end,
+  -- }
 }
 
 local config = require("core.utils").load_config()
